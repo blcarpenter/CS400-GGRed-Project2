@@ -1,13 +1,13 @@
 public class PokemonNode {
+    protected boolean isBlack;
     protected Pokemon pokemon;
-    protected boolean color; //red is false black is true
     protected PokemonNode parent;
     protected PokemonNode leftChild;
     protected PokemonNode rightChild;
 
     public PokemonNode(Pokemon pokemon, boolean color, PokemonNode parent, PokemonNode leftChild, PokemonNode rightChild) {
         this.pokemon = pokemon;
-        this.color = color;
+        this.isBlack = color;
         this.parent = parent;
         this.leftChild = leftChild;
         this.rightChild = rightChild;
@@ -15,10 +15,11 @@ public class PokemonNode {
 
     public PokemonNode(Pokemon pokemon) {
         this.pokemon = pokemon;
+        this.isBlack =false;
     }
     public PokemonNode(Pokemon pokemon, PokemonNode parent, PokemonNode leftChild, PokemonNode rightChild) {
         this.pokemon = pokemon;
-        this.color = false;
+        this.isBlack = false;
         this.parent = parent;
         this.leftChild = leftChild;
         this.rightChild = rightChild;
@@ -33,11 +34,11 @@ public class PokemonNode {
     }
 
     public boolean isColor() {
-        return color;
+        return isBlack;
     }
 
     public void setColor(boolean color) {
-        this.color = color;
+        this.isBlack = color;
     }
 
     public PokemonNode getParent() {
