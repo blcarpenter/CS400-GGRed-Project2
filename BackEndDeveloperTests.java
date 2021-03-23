@@ -7,14 +7,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class BackEndDeveloperTests {
     Backend backend;
-    Object pokemonList;
 
     /**
      * sets up the instances of backend
      */
     @Before
     public void setup(){
-        //LinkedList<PokemonNode> pokemon = new PokemonDataReader(File f);
         this.backend = new Backend();
     }
     @Test
@@ -22,9 +20,9 @@ public class BackEndDeveloperTests {
      * checks to see if the .get method will work
      */
     public void testGet(){
-        Pokemon toAdd = new  Pokemon(1,"pikachu",15,10,12);
+        Pokemon toAdd = new Pokemon(5,"pikachu","electric",15,10);
         backend.add(toAdd);
-        Object PokemonNode = backend.get(1);
+        Object PokemonNode = backend.get(5);
         assertEquals(toAdd,PokemonNode);
     }
 
@@ -33,14 +31,14 @@ public class BackEndDeveloperTests {
      */
     @Test
     public void testAdd(){
-        Pokemon toAdd = new Pokemon(2,"pikachu",15,10,12);
+        Pokemon toAdd = new Pokemon(5,"pikachu","electric",15,10);
         boolean added = false;
         backend.add(toAdd);
         if(backend.tree.root.pokemon.equals(toAdd)){
             added =true;
         }
         assertTrue(added);
-        Pokemon addAgain = new Pokemon(1, "Electrobuzz",3,10,12);
+        Pokemon addAgain = new Pokemon(2, "Electrobuzz","electric",15,10);
         backend.add(addAgain);
         if(!backend.tree.root.getLeftChild().pokemon.equals(addAgain)){
             added =false;
@@ -52,9 +50,9 @@ public class BackEndDeveloperTests {
      */
     @Test
     public void testAutoLeftRotate(){
-        Pokemon toAdd = new Pokemon(5,"pikachu",15,10,12);
-        Pokemon addAgain = new Pokemon(6, "Electrobuzz",3,10,12);
-        Pokemon addToRotate = new Pokemon(7, "charmander",3,10,12);
+        Pokemon toAdd = new Pokemon(5,"pikachu","electric",15,10);
+        Pokemon addAgain = new Pokemon(6, "Electrobuzz","electric",15,10);
+        Pokemon addToRotate = new Pokemon(7, "charmander","fire",15,10);
         backend.add(toAdd);
         backend.add(addAgain );
         backend.add(addToRotate);
@@ -66,13 +64,12 @@ public class BackEndDeveloperTests {
      */
     @Test
     public void testAutoColorSwap(){
-
-        Pokemon toAdd = new Pokemon(5,"pikachu",15,10,12);
-        Pokemon addAgain = new Pokemon(7, "Electrobuzz",3,10,12);
-        Pokemon addAgain2 = new Pokemon(3, "squirtle",3,10,12);
-        Pokemon addToRotate = new Pokemon(6, "charmander",3,10,12);
+        Pokemon toAdd = new Pokemon(5,"pikachu","electric",15,10);
+        Pokemon addAgain = new Pokemon(7, "Electrobuzz","electric",15,10);
+        Pokemon addAgain2 = new Pokemon(3, "squirtle","water",15,10);
+        Pokemon addToRotate = new Pokemon(6, "charmander","fire",15,10);
         backend.add(toAdd);
-        backend.add(addAgain );
+        backend.add(addAgain);
         backend.add(addAgain2);
         backend.add(addToRotate);
         boolean verdict =backend.tree.root.getLeftChild().isBlack;
@@ -84,9 +81,9 @@ public class BackEndDeveloperTests {
      */
     @Test
     public void testAutoRightRotate(){
-        Pokemon toAdd = new Pokemon(5,"pikachu",15,10,12);
-        Pokemon addAgain = new Pokemon(2, "Electrobuzz",3,10,12);
-        Pokemon addToRotate = new Pokemon(1, "charmander",3,10,12);
+        Pokemon toAdd = new Pokemon(5,"pikachu","electric",15,10);
+        Pokemon addAgain = new Pokemon(2, "Electrobuzz","electric",15,10);
+        Pokemon addToRotate = new Pokemon(1, "charmander","fire",15,10);
         backend.add(toAdd);
         backend.add(addAgain );
         backend.add(addToRotate);

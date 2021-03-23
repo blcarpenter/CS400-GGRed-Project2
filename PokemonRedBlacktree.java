@@ -1,19 +1,29 @@
-import java.util.NoSuchElementException;
+/**
+ * // --== CS400 File Header Information ==--
+ * // Name: Alexander Dudin
+ * // Email: dudin@wisc.edu
+ * // Team: Red
+ * // Group: GG
+ * // TA: Surabhi
+ * // Lecturer: Gary Dahl
+ * // Notes to Grader: n/a
+ */
 
+import java.util.NoSuchElementException;
+/**
+ * This class implements a RedBlackTree which stores a set of
+ * Pokemons. The left subtree contains the Pokemons who are less on the pokedex than
+ * the Pokemon stored at a parent node. The right subtree contains the Pokemons
+ * who are higher on the pokedex then the parent than the Pokemon stored at a parent node.
+ *
+ */
 public class PokemonRedBlacktree {
 
-    /**
-     * This class implements a binary search tree (BST) which stores a set of
-     * Pokemons. The left subtree contains the Pokemons who are less powerful than
-     * the Pokemon stored at a parent node. The right subtree contains the Pokemons
-     * who are more powerful than the Pokemon stored at a parent node.
-     *
-     */
-        public PokemonNode root; // root of this binary search tree
+        public PokemonNode root; // root of this Red Black Tree
         private int size; // total number of Pokemons stored in this tree.
 
         /**
-         * Checks whether this binary search tree (BST) is empty
+         * Checks whether this Red Black Tree (Red Black tree) is empty
          *
          * @return true if this PokemonTree is empty, false otherwise
          */
@@ -25,7 +35,7 @@ public class PokemonRedBlacktree {
         }
 
         /**
-         * Returns the number of Pokemons stored in this BST.
+         * Returns the number of Pokemons stored in this Red Black tree.
          *
          * @return the size of this PokemonTree
          */
@@ -169,10 +179,10 @@ public class PokemonRedBlacktree {
         /**
          * Adds a new Pokemon to this PokemonTree
          *
-         * @param data a new Pokemon to add to this BST.
-         * @return true if the new was successfully added to this BST, and returns false
+         * @param data a new Pokemon to add to this Red Black tree.
+         * @return true if the new was successfully added to this Red Black tree, and returns false
          *         if there is a match with this Pokemon already already stored in this
-         *         BST.
+         *         Red Black tree.
          */
         public boolean insert(Pokemon data) throws NullPointerException, IllegalArgumentException {
             // null references cannot be stored within this tree
@@ -255,11 +265,11 @@ public class PokemonRedBlacktree {
         }
     }
         /**
-         * Recursive helper method which returns a String representation of the BST
+         * Recursive helper method which returns a String representation of the Red Black tree
          * rooted at current. An example of the String representation of the contents of
          * a PokemonTree is provided in the description of the above toString() method.
          *
-         * @param current reference to the current PokemonNode within this BST.
+         * @param current reference to the current PokemonNode within this Red Black tree.
          * @return a String representation of all the Pokemons stored in the sub-tree
          *         PokemonTree rooted at current in increasing order with respect to the
          *         CP values. Returns an empty String "" if current is
@@ -288,14 +298,14 @@ public class PokemonRedBlacktree {
         }
 
         /**
-         * Returns a String representation of all the Pokemons stored within this BST in
+         * Returns a String representation of all the Pokemons stored within this Red Black tree in
          * the increasing order, separated by a newline "\n". For instance:
          * "[Pikachu CP:123 (A:1 S:2 D:3)]" + "\n" + "[Eevee CP:224 (A:2 S:2 D:4)]" + "\n" +
          * [Lapras CP:735 (A:7 S:3 D:5)] + "\n" + "[Mewtwo CP:999 (A:9 S:9 D:9)]" + "\n"
          *
-         * @return a String representation of all the Pokemons stored within this BST
+         * @return a String representation of all the Pokemons stored within this Red Black tree
          *         sorted in an increasing order with respect to the CP values.
-         *         Returns an empty string "" if this BST is empty.
+         *         Returns an empty string "" if this Red Black tree is empty.
          */
         public String toString() {
             if(isEmpty()){//if it is empty
@@ -311,7 +321,7 @@ public class PokemonRedBlacktree {
          * @param order combat power of a Pokemon
          * @return the Pokemon whose CP value equals our lookup key.
          * @throws NoSuchElementException with a descriptive error message if there is
-         *           no Pokemon found in this BST having the provided CP value
+         *           no Pokemon found in this Red Black tree having the provided CP value
          */
         public Pokemon lookup(int order) {
             return lookupHelper(order, root);
@@ -322,36 +332,36 @@ public class PokemonRedBlacktree {
          * the same CP in the subtree rooted at current
          *
          * @param order    a reference to a Pokemon target we are lookup for a match in
-         *                the BST rooted at current.
+         *                the Red Black tree rooted at current.
          * @param current "root" of the subtree we are looking for a match to find
          *                within it.
-         * @return reference to the Pokemon stored stored in this BST which matches
+         * @return reference to the Pokemon stored stored in this Red Black tree which matches
          *         find.
          * @throws NoSuchElementException with a descriptive error message if there is
          *                                no Pokemon whose CP value matches target value,
-         *                                stored in this BST.
+         *                                stored in this Red Black tree.
          */
         public static Pokemon lookupHelper(int order, PokemonNode current) {
-            if(current != null) {// checks if it goes through the entire BST
+            if(current != null) {// checks if it goes through the entire Red Black tree
                 Pokemon pokemonRes = null;
-                if (current.getPokemon().getPokedexOrder() == order) {//base case if it finds the pokemon
+                if (current.getPokemon().getID() == order) {//base case if it finds the pokemon
                     pokemonRes =current.getPokemon();
-                } else if (current.getPokemon().getPokedexOrder() > order) {//recursive case to go left
+                } else if (current.getPokemon().getID() > order) {//recursive case to go left
                     pokemonRes =lookupHelper(order, current.getLeftChild());
-                } else if (current.getPokemon().getPokedexOrder() < order) {//recursive case to go right
+                } else if (current.getPokemon().getID() < order) {//recursive case to go right
                     pokemonRes =lookupHelper(order, current.getRightChild());
                 }
                 return pokemonRes;
             }
             //throw no such element exception if the pokemon with the cp is not found
-            throw new NoSuchElementException("this CP does not exist in this BST");
+            throw new NoSuchElementException("this CP does not exist in this Red Black tree");
         }
 
         /**
-         * Computes and returns the height of this BST, counting the number of nodes
+         * Computes and returns the height of this Red Black tree, counting the number of nodes
          * (PokemonNodes) from root to the deepest leaf.
          *
-         * @return the height of this Binary Search Tree
+         * @return the height of this Red Black Tree
          */
         public int height() {
             return heightHelper(root);
@@ -382,8 +392,15 @@ public class PokemonRedBlacktree {
                 }
             }
         }
+
+    /**
+     *
+     * @param data instance of pokemon
+     * @param current current node
+     * @return the pokemon node corresponding with the date
+     */
     public PokemonNode get(Pokemon data,PokemonNode current){
-        if( current!= null) {// checks if it goes through the entire BST
+        if( current!= null) {// checks if it goes through the entire Red Black tree
             PokemonNode node= null;
             if (current.pokemon.equals(data)) {//base case if it finds the pokemon
                 node =current;
@@ -396,14 +413,21 @@ public class PokemonRedBlacktree {
         }
         return null;
     }
+
+    /**
+     *
+     * @param order the order in the pokedex
+     * @param current current node
+     * @returnthe pokemon node corresponding with the order
+     */
     public PokemonNode get(int order,PokemonNode current){
-        if( current!= null) {// checks if it goes through the entire BST
+        if( current!= null) {// checks if it goes through the entire Red Black tree
             PokemonNode node= null;
-            if (current.pokemon.getPokedexOrder() == (order)) {//base case if it finds the pokemon
+            if (current.pokemon.getID() == (order)) {//base case if it finds the pokemon
                 node =current;
-            } else if (current.pokemon.getPokedexOrder()>order) {//recursive case to go left
+            } else if (current.pokemon.getID()>order) {//recursive case to go left
                 node =get(order, current.leftChild);
-            } else if (current.pokemon.getPokedexOrder()<order) {//recursive case to go right
+            } else if (current.pokemon.getID()<order) {//recursive case to go right
                 node =get(order,current.rightChild);
             }
             return node;
@@ -412,4 +436,4 @@ public class PokemonRedBlacktree {
     }
 
 
-    }
+}

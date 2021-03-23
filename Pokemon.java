@@ -1,5 +1,6 @@
 // --== CS400 File Header Information ==--
 // Name: Tate Riordan
+//Contributors : Alex Dudin
 // Email: triordan2@wisc.edu
 // Team: Red
 // Group: GG
