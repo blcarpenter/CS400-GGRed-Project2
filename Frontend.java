@@ -1,12 +1,12 @@
 import java.net.PortUnreachableException;
 import java.util.*;
-import java.util.IllegalArgumentException;
+import java.lang.Exception;
 
-class Frontend implements PokedexInterface{
+public class Frontend implements PokedexInterface{
 
     public Pokemon getPokemon(Backend backend, int id) {
 
-        return backend.lookup(id);
+        return backend.lookUp(id);
 
     }
 
@@ -20,7 +20,7 @@ class Frontend implements PokedexInterface{
 
     }
 
-    public String displayRange(Backend backend, int start, int end) {
+    public static String displayRange(Backend backend, int start, int end) {
 
         return backend.displayAllInRange(start, end).toString();
 
@@ -41,7 +41,7 @@ class Frontend implements PokedexInterface{
 
         Scanner input = new Scanner(System.in);
 
-        int menuInput = input.nextLine();
+        int menuInput = input.nextInt();
 
         if (menuInput != 1 || menuInput != 2 || menuInput != 3 || menuInput != 4 || menuInput != 5) {
 
@@ -53,7 +53,7 @@ class Frontend implements PokedexInterface{
 
         if (menuInput == 1) {
 
-             System.out.println("")
+             System.out.println("");
 
         }
 
@@ -63,9 +63,9 @@ class Frontend implements PokedexInterface{
 
             int id = input.nextInt();
 
-            Pokemon p = backend.lookup(id);
+            Pokemon p = backend.lookUp(id);
 
-            System.out.println(p.toString);
+            System.out.println(p.toString());
 
         }
 
@@ -73,7 +73,7 @@ class Frontend implements PokedexInterface{
 
             System.out.println("Pokemon in this Pokedex:");
 
-            this.displayRange(1, 807);
+            displayRange(backend, 1, 807);
 
         }
 
@@ -89,7 +89,7 @@ class Frontend implements PokedexInterface{
 
             System.out.println("Pokemon in the range " + start + " - " + end + ":");
 
-            this.displayRange(start, end);
+            displayRange(backend, start, end);
 
         }
 
