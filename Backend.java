@@ -21,17 +21,21 @@ public class Backend {
     private List<Pokemon> pokemon;
     private List<Pokemon> pokemonAdded;
     protected PokemonRedBlacktree tree;
+    public Backend()  {
+        this.tree = new PokemonRedBlacktree();
+        this.pokemonAdded = new ArrayList<Pokemon>();
 
+    }
     /**
      * constructor for the class calls pokemon data reader
      */
-    public Backend()  {
+    public Backend(String[] args)  {
         this.tree = new PokemonRedBlacktree();
         this.pokemonAdded = new ArrayList<Pokemon>();
         PokemonDataReader reader = new PokemonDataReader();
         Reader read = null;
         try {
-           read = new FileReader("src/PokemonData.csv");
+           read = new FileReader(args[0]);
         }catch (Exception e){
             System.out.println("foo");
         }
