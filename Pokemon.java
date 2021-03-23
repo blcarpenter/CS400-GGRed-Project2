@@ -83,9 +83,9 @@ public class Pokemon implements PokemonInterface {
 		if (this.name.equals(otherPokemon.getName())) {
 			return 0;
 		} else if (this.id < otherPokemon.getID()) {
-			return 1;
-		} else {
 			return -1;
+		} else {
+			return 1;
 		}
 
 	}
