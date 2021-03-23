@@ -43,7 +43,7 @@ public class Frontend implements PokedexInterface{
 
         int menuInput = input.nextInt();
 
-        if (menuInput != 1 || menuInput != 2 || menuInput != 3 || menuInput != 4 || menuInput != 5) {
+        if (menuInput != 1 && menuInput != 2 && menuInput != 3 && menuInput != 4 && menuInput != 5) {
 
             System.out.println("Please enter an integer between 1 and 5");
 
@@ -100,5 +100,8 @@ public class Frontend implements PokedexInterface{
         }
 
     }
+
+}
+
 
 }
