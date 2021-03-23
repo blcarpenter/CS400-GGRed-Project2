@@ -12,18 +12,21 @@ public class Frontend implements PokedexInterface{
 
     public boolean addPokemon(Backend backend, Pokemon pokemon) {
 
-       if (pokemon == null) return false;
+        if (pokemon == null) return false;
 
-       backend.add(pokemon);
+        backend.add(pokemon);
 
-       return true;
+        return true;
 
     }
 
-    public static String displayRange(Backend backend, int start, int end) {
-
-        return backend.displayAllInRange(start, end).toString();
-
+    public static void displayRange(Backend backend, int start, int end) {
+        ArrayList<Pokemon> foo =backend.displayAllInRange(start, end);
+        String s= "";
+        for(int i = 0; i<foo.size();i++){
+            s+=foo.get(i).toString()+"\n";
+        }
+        System.out.println(s);
     }
 
     public static void main(String[] args) throws IllegalArgumentException, NoSuchElementException {
@@ -53,7 +56,7 @@ public class Frontend implements PokedexInterface{
 
         if (menuInput == 1) {
 
-             System.out.println("");
+            System.out.println("");
 
         }
 
@@ -74,6 +77,7 @@ public class Frontend implements PokedexInterface{
             System.out.println("Pokemon in this Pokedex:");
 
             displayRange(backend, 1, 807);
+
 
         }
 
@@ -104,4 +108,3 @@ public class Frontend implements PokedexInterface{
 }
 
 
-}
