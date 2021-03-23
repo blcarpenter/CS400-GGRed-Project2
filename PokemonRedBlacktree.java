@@ -106,7 +106,7 @@ public class PokemonRedBlacktree {
 
         }else {
             //sets uncle
-            if (grandparent.rightChild.equals(parent)) {
+            if (grandparent.rightChild != null && grandparent.rightChild.equals(parent)) {
                 uncle = grandparent.leftChild;
             } else {
                 uncle = grandparent.rightChild;
@@ -396,7 +396,20 @@ public class PokemonRedBlacktree {
         }
         return null;
     }
-
+    public PokemonNode get(int order,PokemonNode current){
+        if( current!= null) {// checks if it goes through the entire BST
+            PokemonNode node= null;
+            if (current.pokemon.getPokedexOrder() == (order)) {//base case if it finds the pokemon
+                node =current;
+            } else if (current.pokemon.getPokedexOrder()>order) {//recursive case to go left
+                node =get(order, current.leftChild);
+            } else if (current.pokemon.getPokedexOrder()<order) {//recursive case to go right
+                node =get(order,current.rightChild);
+            }
+            return node;
+        }
+        return null;
+    }
 
 
     }
