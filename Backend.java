@@ -8,6 +8,7 @@
  * // Lecturer: Gary Dahl
  * // Notes to Grader: n/a
  */
+import java.io.File;
 import java.io.FileReader;
 import java.io.Reader;
 import java.util.ArrayList;
@@ -46,7 +47,23 @@ public class Backend {
         }
 
     }
+    public Backend(File file)  {
+        this.tree = new PokemonRedBlacktree();
+        this.pokemonAdded = new ArrayList<Pokemon>();
+        PokemonDataReader reader = new PokemonDataReader();
+        Reader read = null;
+        try {
+            read = new FileReader(file);
+        }catch (Exception e){
+            System.out.println("foo");
+        }
+        try {
+            this.pokemon = reader.readDataSet(read);
+        }catch (Exception e){
 
+        }
+
+    }
     /**
      *
      * @param id adds based on id number
