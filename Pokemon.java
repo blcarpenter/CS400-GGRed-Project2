@@ -1,61 +1,93 @@
-public class Pokemon implements Comparable {
-    int pokedexOrder;
-    String name;
-    int species_id;
-    int height;
-    int weight;
+// --== CS400 File Header Information ==--
+// Name: Tate Riordan
+// Email: triordan2@wisc.edu
+// Team: Red
+// Group: GG
+// TA: Surabhi
+// Lecturer: Gary Dahl
+// Notes to Grader: n/a
+public class Pokemon implements PokemonInterface {
 
-    public Pokemon(int pokedexOrder, String name, int species_id, int height, int weight) {
-        this.pokedexOrder = pokedexOrder;
-        this.name = name;
-        this.species_id = species_id;
-        this.height = height;
-        this.weight = weight;
-    }
+	private Integer id;
+	private String name;
+	private String type;
+	private Integer weight;
+	private Integer height;
+	
+	/**
+	 * Constructor for the pokemon class
+	 * @param id
+	 * @param name
+	 * @param type
+	 * @param height
+	 * @param weight
+	 */
+	public Pokemon(Integer id, String name, String type, Integer height, Integer weight) {
+		this.id = id;
+		this.name = name;
+		this.type = type;
+		this.weight = weight;
+		this.height = height;
+	}
+	
+	/**
+	 * returns the id of the pokemon
+	 */
+	@Override
+	public Integer getID() {
+		return this.id;
+	}
+	
+	/**
+	 * returns the name of the pokemon
+	 */
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return this.name;
+	}
 
-    public int getPokedexOrder() {
-        return pokedexOrder;
-    }
+	/**
+	 * returns the type of the pokemon
+	 */
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return this.type;
+	}
 
-    public String getName() {
-        return name;
-    }
+	/**
+	 * returns the weight of the pokemon
+	 */
+	@Override
+	public Integer getWeight() {
+		// TODO Auto-generated method stub
+		return this.weight;
+	}
 
-    public int getSpecies_id() {
-        return species_id;
-    }
+	/**
+	 * returns the height of the pokemon
+	 */
+	@Override
+	public Integer getHeight() {
+		// TODO Auto-generated method stub
+		return this.height;
+	}
 
-    public int getHeight() {
-        return height;
-    }
+	/**
+	 * returns the compareTo value of the two pokemons based on id
+	 */
+	@Override
+	public int compareTo(PokemonInterface otherPokemon) {
+		// TODO Auto-generated method stub
+		if (this.name.equals(otherPokemon.getName())) {
+			return 0;
+		} else if (this.id < otherPokemon.getID()) {
+			return 1;
+		} else {
+			return -1;
+		}
 
-    public int getWeight() {
-        return weight;
-    }
+	}
 
-    @Override
-    public String toString() {
-        return "pokedexOrder=" + pokedexOrder +
-                ", name='" + name  +
-                ", species_id=" + species_id +
-                ", height=" + height +
-                ", weight=" + weight +
-                '}';
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        if (o.getClass().equals(Pokemon.class)){
-            Pokemon comparing = (Pokemon) o;
-            if(this.pokedexOrder >comparing.pokedexOrder ){
-                return 1;
-            }else if(this.pokedexOrder ==comparing.pokedexOrder ){
-                return 0;
-            }else{
-                return -1;
-            }
-        }else {
-            throw new  IllegalArgumentException("not a pokemon");
-        }
-    }
 }
