@@ -1,10 +1,21 @@
+/**
+ * // --== CS400 File Header Information ==--
+ * // Name: Alexander Dudin
+ * // Email: dudin@wisc.edu
+ * // Team: Red
+ * // Group: GG
+ * // TA: Surabhi
+ * // Lecturer: Gary Dahl
+ * // Notes to Grader: n/a
+ */
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * this is the a class the uses junit to test the backend class
+ */
 public class BackEndDeveloperTests {
     Backend backend;
 
@@ -90,6 +101,7 @@ public class BackEndDeveloperTests {
         Pokemon verdict = backend.tree.root.pokemon;
         assertEquals(addAgain,verdict);
     }
+
 
     @After
     public void cleanup(){
