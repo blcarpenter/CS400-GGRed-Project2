@@ -31,11 +31,12 @@ public class DataWranglerTester {
 	 */
 	@Test
 	public void test1() {
-		List<PokemonInterface> pokemonList = new ArrayList<PokemonInterface>();
+		List<Pokemon> pokemonList = new ArrayList<Pokemon>();
 		reader = new PokemonDataReader();
 		try {
 			pokemonList = reader.readDataSet(new StringReader("id,name,type,height,weight\n"
 					+"1,bulbasaur,grass,7,69\n" + "2,ivysaur,grass,10,130\n"));
+			//System.out.println(pokemonList.get(0).getName());
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail("This data could not be read.");
@@ -51,7 +52,7 @@ public class DataWranglerTester {
 	 */
 	@Test
 	public void test2() {
-		List<PokemonInterface> pokemonList = new ArrayList<PokemonInterface>();
+		List<Pokemon> pokemonList = new ArrayList<Pokemon>();
 		reader = new PokemonDataReader();
 		try {
 			pokemonList = reader.readDataSet(new StringReader("id,name,type,height,weight\n"
@@ -68,7 +69,7 @@ public class DataWranglerTester {
 	 */
 	@Test
 	public void test3() {
-		List<PokemonInterface> pokemonList = new ArrayList<PokemonInterface>();
+		List<Pokemon> pokemonList = new ArrayList<Pokemon>();
 		reader = new PokemonDataReader();
 		try {
 			pokemonList = reader.readDataSet(new StringReader("id,name,type,height,weight\n"
@@ -86,7 +87,7 @@ public class DataWranglerTester {
 	 */
 	@Test
 	public void test4() {
-		List<PokemonInterface> pokemonList = new ArrayList<PokemonInterface>();
+		List<Pokemon> pokemonList = new ArrayList<Pokemon>();
 		reader = new PokemonDataReader();
 		try {
 			pokemonList = reader.readDataSet(new StringReader("id,name,type,height,weight\n"
@@ -103,7 +104,7 @@ public class DataWranglerTester {
 	 */
 	@Test
 	public void test5() {
-		List<PokemonInterface> pokemonList = new ArrayList<PokemonInterface>();
+		List<Pokemon> pokemonList = new ArrayList<Pokemon>();
 		reader = new PokemonDataReader();
 		try {
 			pokemonList = reader.readDataSet(new StringReader("id,name,type,height,weight\n"

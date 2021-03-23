@@ -15,5 +15,5 @@ import java.util.zip.DataFormatException;
 
 
 public interface PokemonDataReaderInterface {
-	public List<PokemonInterface> readDataSet(Reader inputFileReader) throws FileNotFoundException, IOException, DataFormatException;
+	public List<Pokemon> readDataSet(Reader inputFileReader) throws FileNotFoundException, IOException, DataFormatException;
 }

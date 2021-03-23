@@ -26,10 +26,10 @@ public class PokemonDataReader implements PokemonDataReaderInterface {
 	 * This reads the data file in and separates out the qualities we need
 	 */
 	@Override
-	public List<PokemonInterface> readDataSet(Reader inputFileReader)
+	public List<Pokemon> readDataSet(Reader inputFileReader)
 			throws FileNotFoundException, IOException, DataFormatException {
 		// TODO Auto-generated method stub
-		List<PokemonInterface> helper = new ArrayList<PokemonInterface>();
+		List<Pokemon> helper = new ArrayList<Pokemon>();
 		String line = "";
 		String split = ",";
 		// this creates the arraylist of the different pokemon

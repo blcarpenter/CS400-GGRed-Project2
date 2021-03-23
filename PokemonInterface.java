@@ -13,4 +13,5 @@ public interface PokemonInterface extends Comparable<PokemonInterface> {
 	public Integer getWeight();
 	public Integer getHeight();
 	public int compareTo(PokemonInterface otherPokemon);
+	public String toString();
 }
