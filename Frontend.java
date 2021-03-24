@@ -10,6 +10,7 @@
 import java.net.PortUnreachableException;
 import java.util.*;
 import java.lang.Exception;
+import java.io.File;
 
 public class Frontend implements PokedexInterface{
 
@@ -42,7 +43,9 @@ public class Frontend implements PokedexInterface{
 
     public static void main(String[] args) throws IllegalArgumentException, NoSuchElementException {
 
-        Backend backend = new Backend();
+        File file = new File("PokemonData.csv");
+
+        Backend backend = new Backend(file);
 
         int menuInput = 0;
 
@@ -148,3 +151,4 @@ public class Frontend implements PokedexInterface{
     }
 
 }
+
