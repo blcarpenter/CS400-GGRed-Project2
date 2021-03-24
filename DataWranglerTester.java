@@ -1,8 +1,8 @@
 // --== CS400 File Header Information ==--
 // Name: Tate Riordan
 // Email: triordan2@wisc.edu
-// Team: Red
-// Group: GG
+// Team: GG Red
+// Role: Data Wrangler
 // TA: Surabhi
 // Lecturer: Gary Dahl
 // Notes to Grader: n/a
@@ -36,7 +36,7 @@ public class DataWranglerTester {
 		try {
 			pokemonList = reader.readDataSet(new StringReader("id,name,type,height,weight\n"
 					+"1,bulbasaur,grass,7,69\n" + "2,ivysaur,grass,10,130\n"));
-			//System.out.println(pokemonList.get(0).getName());
+			//System.out.println(pokemonList.get(0).toString());
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail("This data could not be read.");

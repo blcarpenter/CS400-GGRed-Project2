@@ -1,8 +1,8 @@
 // --== CS400 File Header Information ==--
 // Name: Tate Riordan
 // Email: triordan2@wisc.edu
-// Team: Red
-// Group: GG
+// Team: GG Red
+// Role: Data Wrangler
 // TA: Surabhi
 // Lecturer: Gary Dahl
 // Notes to Grader: n/a
