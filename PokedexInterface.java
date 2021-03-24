@@ -1,3 +1,12 @@
+// --== CS400 File Header Information ==--
+// Name: Ben Carpenter
+// Email: blcarpenter@wisc.edu
+// Team: GG Red
+// Role: Frontend Developer
+// TA: Surabhi
+// Lecturer: Gary
+// Notes to Grader:
+
 public interface PokedexInterface {
 
   public Pokemon getPokemon(Backend backend, int id);
